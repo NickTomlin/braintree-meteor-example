@@ -10,10 +10,12 @@ If you notice something amiss, or want to see a new feature covered (e.g. storin
 
 # Initial setup
 
-1. [Create a sandbox account](https://www.braintreepayments.com/get-started)
-2. [Login](https://sandbox.braintreegateway.com/login) to the braintree sandbox
-3. Retrieve your api keys (navigate to: My User > Api Keys)
-4. Copy the `env.example` in this repository to `.env` (which will allow the server to use your credentials without storing them in version control)
+0. [Install Meteor](https://www.meteor.com/install)
+1. Clone this repo `git clone git@github.com:NickTomlin/braintree-meteor-example.git`
+2. [Create a sandbox account](https://www.braintreepayments.com/get-started)
+3. [Login](https://sandbox.braintreegateway.com/login) to the braintree sandbox
+4. Retrieve your api keys (navigate to: My User > Api Keys)
+5. Copy the `env.example` in this repository to `.env` (which will allow the server to use your credentials without storing them in version control)
 
 # Start
 
