@@ -1,0 +1,106 @@
+<head>
+  <title>Braintree + Meteor</title>
+</head>
+
+<body>
+  <header class="app-header">
+    <div class="row">
+      <h1><small>Braintree + Meteor</small></h1>
+      <ul class="columns small-12 inline-list">
+        <li>
+          <a href="https://developers.braintreepayments.com/javascript+node/start/overview" target="_blank">Official Developer Documentation</a>
+        </li>
+        <li>
+          <a href="http://stackoverflow.com/questions/tagged/braintree" target="_blank">#braintree on StackOverflow</a>
+        </li>
+      </ul>
+    </div>
+  </header>
+</body>
+
+<template name="home">
+  <div class="payment-form {{paymentFormStatusClass}}">
+    <div class="row">
+      <div class="overlay">
+        <h1 class="overlay__message">
+          Processing...
+        </h1>
+      </div>
+    </div>
+
+    <div class="row">
+      <h2>Checkout</h2>
+
+      <hr>
+
+      <form id="checkout" method="post" action="/checkout">
+        <h3>Details</h3>
+        <div class="row">
+          <label for="firstName" class="columns small-12 large-6">
+            First Name
+            <input type="text" name="firstName" required>
+          </label>
+
+          <label for="lastName" class="columns small-12 large-6 ">
+            Last Name
+            <input type="text" name="lastName" required>
+          </label>
+        </div>
+        <div class="row">
+          <label for="tshirt" class="columns small-12 large-6 last">
+            T shirt size
+            <select name="tshirt">
+              <option value="small">small</option>
+              <option value="medium">medium</option>
+              <option value="large">large</option>
+            </select>
+          </label>
+
+          <label for="quantity" class="columns small-12 large-6">
+            Quantity:
+            <select name="quantity">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+            </select>
+          </label>
+        </div>
+
+        <h3>Payment</h3>
+        <div class="row">
+          <div class="columns small-12">
+            <p>
+              <strong>Test Credit Card Number:</strong> 4111 1111 1111 1111 <a href="https://developers.braintreepayments.com/ios+ruby/reference/general/testing#credit-card-numbers" target="_blank">(documentation)</a>
+            </p>
+            <p>
+              <strong>Expiration:</strong> (any future dated expiration e.g. 09/16)
+            </p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div id="dropin" class="columns small-12"></div>
+        </div>
+
+        <div class="row">
+          <div class="columns small-12">
+            <button type="submit">Complete Your Purchase</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</template>
+
+<template name="confirmation">
+  <div class="row">
+    <h2>Order Complete</h2>
+    <h1>Thank you!</h1>
+     {{#linkTo route="home"}}
+       Take me back! I want to buy more stuff!
+     {{/linkTo}}
+  </div>
+</template>
