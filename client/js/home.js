@@ -43,7 +43,7 @@ Template.home.helpers({
   paymentFormStatusClass: function () {
     return Session.get('paymentFormStatus') ? 'payment-form__is-submitting' : '';
   }
-})
+});
 
 Template.home.rendered = function () {
   Meteor.call('getClientToken', function (err, clientToken) {
