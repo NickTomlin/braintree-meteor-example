@@ -15,12 +15,12 @@ If you notice something amiss, or want to see a new feature covered (e.g. storin
 2. [Create a sandbox account](https://www.braintreepayments.com/get-started)
 3. [Login](https://sandbox.braintreegateway.com/login) to the braintree sandbox
 4. Retrieve your api keys (navigate to: My User > Api Keys)
-5. Copy the `env.example` in this repository to `.env` (which will allow the server to use your credentials without storing them in version control)
+5. Insert the keys into `settings.json` and remove the `.example` extension
 
 # Start
 
 ```bash
-$ meteor
+$ meteor --settings settings.json
 ```
 
 # Issues?
