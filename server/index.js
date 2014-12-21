@@ -4,9 +4,9 @@ Meteor.startup(function () {
   var braintree = Meteor.npmRequire('braintree');
   gateway = braintree.connect({
     environment: braintree.Environment.Sandbox,
-    publicKey: process.env.BT_PUBLIC_KEY,
-    privateKey: process.env.BT_PRIVATE_KEY,
-    merchantId: process.env.BT_MERCHANT_ID
+    publicKey: Meteor.settings.BT_PUBLIC_KEY,
+    privateKey: Meteor.settings.BT_PRIVATE_KEY,
+    merchantId: Meteor.settings.BT_MERCHANT_ID
   });
 });
 
@@ -42,4 +42,4 @@ Meteor.methods({
 
     return response;
   }
-})
+});
