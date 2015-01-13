@@ -23,6 +23,14 @@ If you notice something amiss, or want to see a new feature covered (e.g. storin
 $ meteor --settings settings.json
 ```
 
+# Integration Tests
+
+```bash
+npm i -g protractor
+# meteor app should be running
+protractor protractor.conf.js
+```
+
 # Issues?
 
 For issues related to this repo, please submit an issue on github.
