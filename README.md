@@ -31,6 +31,8 @@ npm i -g protractor
 protractor protractor.conf.js
 ```
 
+At the moment the test require protractor to be installed globally, to avoid complications with Meteor's auto-loading behaviour. This is not ideal.
+
 # Issues?
 
 For issues related to this repo, please submit an issue on github.
