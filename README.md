@@ -23,6 +23,16 @@ If you notice something amiss, or want to see a new feature covered (e.g. storin
 $ meteor --settings settings.json
 ```
 
+# Integration Tests
+
+```bash
+npm i -g protractor
+# meteor app should be running
+protractor protractor.conf.js
+```
+
+At the moment the test require protractor to be installed globally, to avoid complications with Meteor's auto-loading behaviour. This is not ideal.
+
 # Issues?
 
 For issues related to this repo, please submit an issue on github.
