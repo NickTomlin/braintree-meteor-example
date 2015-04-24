@@ -16,7 +16,7 @@ var validSelectValues = {
 exports.completeCheckout = function () {
   $('button[type="submit"]').click();
 
-  browser.driver.wait(function () {
+  return browser.driver.wait(function () {
     return browser.driver.getCurrentUrl().then(function (url) {
       return url.indexOf('confirmation') > -1;
     });
@@ -36,17 +36,25 @@ exports.fillOutOrderDetails = function () {
 };
 
 exports.fillOutPaymentForm = function () {
-  browser.driver.wait(function () {
-    return browser.driver.isElementPresent(protractor.By.css('[src$="inline-frame.html"]'));
-  }, 15000);
+  exports.waitForElement($('[src$="inline-frame.html"]'));
 
   browser.driver.switchTo().frame(0);
 
-  browser.driver.wait(function () {
-    return browser.driver.isElementPresent(protractor.By.name('credit-card-number'));
-  }, 10000);
+  exports.waitForElement($('[name=credit-card-number]'));
 
   browser.driver.findElement(protractor.By.name('credit-card-number')).sendKeys(validCC);
   browser.driver.findElement(protractor.By.name('expiration')).sendKeys(validExp);
   browser.switchTo().defaultContent();
 };
+
+// shout out to Hans Poppe http://stackoverflow.com/a/28045726
+exports.waitForElement = function (element, timeout) {
+  timeout = timeout || 30000;
+  browser.wait(function () {
+    return element.isPresent();
+  }, timeout);
+
+  browser.wait(function () {
+    return element.isDisplayed();
+  }, timeout);
+}

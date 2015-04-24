@@ -12,11 +12,14 @@ describe('Braintree Meteor Example', function () {
     expect(browser.getTitle()).toEqual('Braintree + Meteor');
   });
 
-  it('Processes a credit card transaction', function () {
+  it('Processes a credit card transaction', function (done) {
     helpers.fillOutOrderDetails();
-    helpers.fillOutPaymentForm();
-    helpers.completeCheckout();
+    helpers.fillOutPaymentForm()
 
-    expect($('h2').getText()).toEqual('Order Complete');
+    helpers.completeCheckout()
+      .then(function () {
+        expect($('h2').getText()).toEqual('Order Complete');
+        done();
+      });
   });
 });
