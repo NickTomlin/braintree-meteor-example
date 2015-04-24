@@ -1,4 +1,5 @@
 Session.set('paymentFormStatus', null);
+var isBraintreeInitialized = false;
 
 // note: it is highly recommended to _not_
 // do things this way and instead use one of the many
@@ -19,6 +20,7 @@ function serializeForm ($form) {
 }
 
 function initializeBraintree (clientToken) {
+  if (isBraintreeInitialized) return;
 
   braintree.setup(clientToken, 'dropin', {
     container: 'dropin',
@@ -37,6 +39,8 @@ function initializeBraintree (clientToken) {
       });
     }
   });
+
+  isBraintreeInitialized = true;
 }
 
 Template.home.helpers({
