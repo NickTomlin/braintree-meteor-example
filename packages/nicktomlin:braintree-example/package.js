@@ -13,4 +13,4 @@ Package.onUse(function(api) {
   api.addFiles('.npm/package/node_modules/braintree-web/dist/braintree.js', 'client');
 });
 
-Npm.depends({'braintree-web': "2.3.3"});
+Npm.depends({'braintree-web': '2.7.1'});
